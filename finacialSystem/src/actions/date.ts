@@ -1,9 +1,16 @@
 import { itemType } from "../data/types"
 
 
+let fdm = (dayOrMonth: number) => dayOrMonth >= 10 ? dayOrMonth : `0${dayOrMonth}` // format day or month
+
 export function getCurrentMonth() {
     const now = new Date()
-    return `${now.getFullYear()}-${now.getMonth()+1}`
+    return `${now.getFullYear()}-${fdm(now.getMonth()+1)}`
+}
+
+export function getMonthFormat(month: number, year: number): string {
+    const customDate = new Date(year, month, 1)
+    return `${customDate.getFullYear()}-${fdm(customDate.getMonth()+1)}`
 }
 
 export function filterListByMonth(itemsList: Array<itemType>, date: string): Array<itemType> {
@@ -16,12 +23,18 @@ export function filterListByMonth(itemsList: Array<itemType>, date: string): Arr
         }
     })
     
-    return itemsList
+    return filteredList
 }
 
 
 export function formatDate(date: Date): string {
     let [day, month, year] = [date.getDate(), date.getMonth()+1, date.getFullYear()]
-    let fdm = (dayOrMonth: number) => dayOrMonth >= 10 ? dayOrMonth : `0${dayOrMonth}` // format day or month
     return `${fdm(day)}/${fdm(month)}/${year}`
+}
+
+
+export function getMonthName(date: string): string {
+    let [year, month] = date.split('-')
+    const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    return `${months[parseInt(month) - 1]} de ${year}`
 }

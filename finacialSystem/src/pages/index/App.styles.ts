@@ -14,7 +14,7 @@ export const Div = {
     `,
     
     main: styled.div`
-        margin: 0 auto;
+        margin: 50px auto;
         max-width: 980px;
         padding-top: 50px;
         margin-bottom: 30px;
