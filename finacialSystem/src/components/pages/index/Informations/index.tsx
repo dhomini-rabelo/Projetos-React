@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getMonthName } from "../../../../actions/date";
 import { contextType, PageContext } from "../../../../pages/index/App";
 import { Div } from "./styles";
 import { getMonthFormat, filterListByMonth } from './../../../../actions/date';
 import { ResumeItem } from "./components/ResumeItem";
 import { getMoneyReport } from "../../../../actions/money";
+
+function getColorForBalance(value: number): string{ if (value === 0) {return 'black'} else if (value > 0) {return 'green'} else { return 'red' } }
 
 
 export function InformationContainer() {
@@ -29,6 +31,13 @@ export function InformationContainer() {
         updateFilteredListData(newMonth)
     }
 
+
+    useEffect(() => {
+        let newMoneyReport = getMoneyReport(filteredList)
+        setIncome(newMoneyReport.income)
+        setExpense(newMoneyReport.expense)
+    }, [filteredList])
+
     return (
         <Div.container>
             <Div.monthContainer>
@@ -37,9 +46,9 @@ export function InformationContainer() {
                 <Div.monthArrow onClick={() => handleNextMonth()}>➡️</Div.monthArrow>
             </Div.monthContainer>
             <Div.resumeContainer>
-                <ResumeItem title="Receitas" value={income} />
-                <ResumeItem title="Despesas" value={expense} />
-                <ResumeItem title="Balanço" value={income - expense} />
+                <ResumeItem title="Receitas" value={income} color={'black'} />
+                <ResumeItem title="Despesas" value={expense} color={'black'} />
+                <ResumeItem title="Balanço" value={income - expense} color={getColorForBalance((income - expense))} />
             </Div.resumeContainer>
         </Div.container>
     )

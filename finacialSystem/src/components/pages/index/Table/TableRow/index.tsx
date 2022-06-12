@@ -9,7 +9,7 @@ export function TableRow({ item }: { item: itemType }) {
             <Td.column>{formatDate(item.date)}</Td.column>
             <Td.column><Div.category color={categories[item.category].color}>{categories[item.category].title}</Div.category></Td.column>
             <Td.column>{item.title}</Td.column>
-            <Td.column><Div.value color={categories[item.category].expense ? 'red': 'green'}>R$ {item.value}</Div.value></Td.column>
+            <Td.column><Div.value color={categories[item.category].expense ? 'red': 'green'}>R$ {item.value.toFixed(2)}</Div.value></Td.column>
         </Tr.content>
     ) 
 }

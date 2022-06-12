@@ -1,6 +1,7 @@
 import { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { filterListByMonth, getCurrentMonth } from '../../actions/date'
 import { InformationContainer } from '../../components/pages/index/Informations'
+import { InputArea } from '../../components/pages/index/InputArea'
 import { TableComponent } from '../../components/pages/index/Table'
 import { items } from '../../data/items'
 import { itemType } from '../../data/types'
@@ -27,9 +28,9 @@ function App() {
         <Div.header>
           <H1.title>Sistema financeiro</H1.title>
         </Div.header>
-
         <Div.main>
           <InformationContainer />
+          <InputArea />
           <TableComponent data={filteredList} />
         </Div.main>
       </Div.container>

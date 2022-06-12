@@ -10,13 +10,13 @@ export const Div = {
     title: styled.div`
         text-align: center;
         font-weight: bold;
-        color: #888;
+        color: #000;
         margin-bottom: 5px;
         `,
 
-value: styled.div`
+    value: styled.div(({ color }: { color: string }) => `
         text-align: center;
         font-weight: bold;
-        color: #000;
-    `,
+        color: ${color};
+    `),
 }

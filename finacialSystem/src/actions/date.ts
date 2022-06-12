@@ -1,7 +1,7 @@
 import { itemType } from "../data/types"
 
 
-let fdm = (dayOrMonth: number) => dayOrMonth >= 10 ? dayOrMonth : `0${dayOrMonth}` // format day or month
+export const fdm = (dayOrMonth: number) => dayOrMonth >= 10 ? dayOrMonth : `0${dayOrMonth}` // format day or month
 
 export function getCurrentMonth() {
     const now = new Date()
