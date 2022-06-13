@@ -6,7 +6,7 @@ export function Step3() {
 
   return (
     <div className="App">
-      Hello World 2
+      Hello World 3
     </div>
   )
 }

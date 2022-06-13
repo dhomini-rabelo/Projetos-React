@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { FormProvider } from './contexts/form'
 import { Router } from './router'
 
 
@@ -6,9 +7,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <FormProvider>
       <Router />
-    </div>
+    </FormProvider>
   )
 }
 
