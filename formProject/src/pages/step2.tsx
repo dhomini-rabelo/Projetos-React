@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { ChangeEvent, ReactNode, useEffect, useState } from 'react'
 import { FormPageBase } from '../components/bases/Form'
 import { Div } from '../styles'
@@ -11,43 +11,46 @@ export function Step2() {
   let { formData, formDataDispatch } = useFormContext() as FormContextType
 
   function handleNextStep() {
-    if (formData.name !== '') {
+    if ( formData.level !== 0 ) {
       navigate('/step3')
     } else {
-      alert('Digite seu nome')
+      alert('Selecione seu nível de conhecimento')
     }
   }
 
   useEffect(() => {
-    formDataDispatch({ type: FormActions.setCurrentStep, payload: 2 })
+    if ( formData.name === '' ) { navigate('/') } else {
+      formDataDispatch({ type: FormActions.setCurrentStep, payload: 2 })
+    }
   }, [])
   
 
   return (
     <FormPageBase>
       <Div.container>
-        <p>Passo 2/3</p>
-        <h1>Vamos começar com seu nome</h1>
-        <p>Preencha o campo abaixo com seu nome completo.</p>
+      <p>Passo 2/3</p>
+      <h1>{formData.name}, o que melhor descreve você?</h1>
+      <p>Escolha a opção que melhor condiz com seu estado atual, profissionalmente.</p>
 
-        <hr/>
+      <hr/>
 
         <SelectBox
           title="Sou iniciante"
           description="Comecei a programar há menos de 2 anos"
           icon="🥳"
-          // selected={state.level === 0}
-          // onClick={()=>setLevel(0)}
+          selected={formData.level === 1}
+          onClick={() => formDataDispatch({ type: FormActions.setLevel, payload: 1 })}
       />
 
         <SelectBox
             title="Sou programador"
             description="Já programo há 2 anos ou mais"
             icon="😎"
-            // selected={state.level === 1}
-            // onClick={()=>setLevel(1)}
+            selected={formData.level === 2}
+            onClick={() => formDataDispatch({ type: FormActions.setLevel, payload: 2 })}
         />
 
+        <Link to="/" className="backButton">Voltar</Link>
         <button onClick={() => handleNextStep()}>Próximo</button>
       </Div.container>
     </FormPageBase>

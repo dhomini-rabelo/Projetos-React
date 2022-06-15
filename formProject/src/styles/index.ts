@@ -21,6 +21,8 @@ export const Div = {
 
         label {
             font-size: 13px;
+            display: block;
+            margin-bottom: 20px;
 
             input {
                 margin-top: 7px;
@@ -46,7 +48,14 @@ export const Div = {
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 10px;
+        }
+
+        .backButton {
+            font-size: 16px;
+            text-decoration: none;
+            padding: 20px 40px;
+            color: #b8b8d4;
         }
     `,
 }

@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 
 export const Div = {
-    container: styled.div`
+    container: styled.div(({ selected }: { selected: boolean }) => `
       display: flex;
-      border: 2px solid #16195c;
+      border: 2px solid ${selected ? '#25cd89' : '#16195c'};
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 15px;
@@ -14,7 +14,7 @@ export const Div = {
       &:hover {
         border: 2px solid #496459;
       }
-    `,
+    `),
 
     icon: styled.div`
         width: 60px;

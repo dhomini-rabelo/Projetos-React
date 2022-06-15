@@ -16,6 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "src/assets"],
+  // "files": [ "src/custom.d.ts" ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
