@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { ChangeEvent, ReactNode, useEffect, useState } from 'react'
+import { ChangeEvent, ReactNode, useEffect, useState, KeyboardEvent } from 'react'
 import { FormPageBase } from '../components/bases/Form'
 import { Div } from '../styles'
 import { useFormContext, FormActions, FormContextType } from "../contexts/form"
@@ -38,6 +38,7 @@ export function Index() {
                 autoFocus
                 value={formData.name}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => formDataDispatch({type: FormActions.setName, payload: e.target.value})}
+                onKeyPress={(e: KeyboardEvent<HTMLInputElement>) => {if(e.code == 'Enter') { handleNextStep() }}}
                 />
         </label>
 

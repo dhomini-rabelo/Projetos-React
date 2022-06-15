@@ -13,9 +13,9 @@ export function SidebarItem({ title, description, icon, path, active }: { title:
                     <Div.description>{description}</Div.description>
                 </Div.info>
                 <Div.iconContainer active={active}>
-                    {/* {icon === 'profile' && <img src={ProfileIcon} style={{color: 'white'}} width={24} height={24} />} */}
-                    {/* {icon === 'book' && <BookIcon fill="white" width={24} height={24} />} */}
-                    {/* {icon === 'mail' && <MailIcon fill="white" width={24} height={24} />} */}
+                    {icon === 'profile' && <img src={ProfileIcon} style={{fill: 'white', width: '24px', height: '24px'}} />}
+                    {icon === 'book' && <img src={BookIcon} style={{fill: 'white', width: '24px', height: '24px'}} />}
+                    {icon === 'mail' && <img src={MailIcon} style={{fill: 'white', width: '24px', height: '24px'}} />}
                 </Div.iconContainer>
                 <Div.point active={active}></Div.point>
             </Link>
