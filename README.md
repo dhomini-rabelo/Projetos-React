@@ -12,7 +12,7 @@
 </ul>
 
 <br>
-<h2 id="features">🚀 Implementação de styled-components dentro de objeto</h2>
+<h2 id="features">🚀 Implementação do styled-components dentro de um objeto</h2>
 
 ```
 # Arquivo de estilização
@@ -73,7 +73,7 @@ function App() {
 
 <br>
 <li>
-<h3>Formulário Multi etapas</h3>
+<h3>Formulário Multi-etapas</h3>
 <br>
 <img src="./readme/form.gif" alt="project-result">
 </li><br>
@@ -87,7 +87,7 @@ function App() {
 
 <br>
 <li>
-<h3>Todo List</h3>
+<h3>To-do List</h3>
 <br>
 <img src="./readme/tasks.gif" alt="project-result">
 </li><br>
