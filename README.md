@@ -1,5 +1,4 @@
 <h1>Projetos com React</h1>
-<p>Projetos para prática de react</p>
 
 <br>
 <h2 id="tools">🛠️ Ferramentas</h2>
@@ -7,7 +6,7 @@
 <ul>
 <li>Vite-ts</li>
 <li>Typescript</li>
-<li>Context APi</li>
+<li>Context API</li>
 <li>Hooks</li>
 <li>Styled-components</li>
 </ul>
@@ -31,7 +30,7 @@ export const Div = {
     content: styled.div`
         margin: 0 auto;
         max-width: 980px;
-        padding: 30px 10px;
+        padding: 1.875rem 0.625rem;
     `
 
 }
@@ -44,7 +43,6 @@ export const Div = {
 
 function App() {
   const [tasks, setTasks] = useState<taskType[]>([])
-  const contextValue: contextType = { tasks, setTasks }
   
   function addNewTask(text: string) {
     const newTask = { text, done: false }
@@ -52,7 +50,7 @@ function App() {
   }
 
   return (
-    <PageContext.Provider value={contextValue}>
+    <PageContext.Provider value={{ tasks, setTasks }}>
       <Div.container>
         <Div.content>
       
