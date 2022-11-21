@@ -4,10 +4,10 @@
 <h2 id="tools">🛠️ Ferramentas</h2>
 
 <ul>
-<li>Vite-ts</li>
+<li>Vite</li>
 <li>Typescript</li>
 <li>Context API</li>
-<li>Hooks</li>
+<li>React-router-dom</li>
 <li>Styled-components</li>
 </ul>
 
